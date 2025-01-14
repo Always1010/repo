@@ -1,2 +1,26 @@
 this is a README
 this is a brach
+
+
+cmake_minimum_required(VERSION 3.10)
+project(MyProject VERSION 1.0)
+
+# 设置 C++ 标准
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 源文件目录
+set(SOURCE_FILES main.cpp source1.cpp source2.cpp)
+
+# 创建可执行文件
+add_executable(myapp ${SOURCE_FILES})
+
+# 为 myapp 目标添加头文件路径
+target_include_directories(myapp PRIVATE ${PROJECT_SOURCE_DIR}/include)
+
+# 如果有库，也可以这样添加头文件路径
+# add_library(mystaticlib STATIC library1.cpp library2.cpp)
+# target_include_directories(mystaticlib PUBLIC ${PROJECT_SOURCE_DIR}/include/mystaticlib)
+
+# 如果需要链接库，可以这样做
+# target_link_libraries(myapp PRIVATE mystaticlib)
